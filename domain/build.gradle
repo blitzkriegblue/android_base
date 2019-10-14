@@ -1,0 +1,20 @@
+apply plugin: 'kotlin'
+
+apply from: '../scripts/ktlint.gradle'
+
+dependencies {
+    def domainDependencies = rootProject.ext.domainDependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    implementation domainDependencies.kotlin
+    implementation domainDependencies.rxJava
+    implementation domainDependencies.rxKotlin
+    implementation domainDependencies.inject
+    api domainDependencies.threetenabp
+
+    testImplementation testDependencies.jUnit
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.kluent
+
+    testImplementation testDependencies.threetenabp
+}
